@@ -1,12 +1,14 @@
 let firstStep = createGrid();
-
+const reset = document.getElementById("btn");
 const gridSquares = document.querySelectorAll (".gridSquare");
+
 
 gridSquares.forEach (gridSquare => {
     gridSquare.addEventListener ("mousedown", function penDraw() {
         gridSquare.setAttribute("style", "background-color: gray")
     })
 })
+
 
 function createGrid(){
 for (i=0; i<256; i++) {
@@ -18,3 +20,6 @@ for (i=0; i<256; i++) {
 };
 }
 
+reset.addEventListener ("click", function clearGrid() {
+    location.reload();
+});
