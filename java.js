@@ -1,5 +1,13 @@
 let firstStep = createGrid();
 
+const gridSquares = document.querySelectorAll (".gridSquare");
+
+gridSquares.forEach (gridSquare => {
+    gridSquare.addEventListener ("mousedown", function penDraw() {
+        gridSquare.setAttribute("style", "background-color: gray")
+    })
+})
+
 function createGrid(){
 for (i=0; i<256; i++) {
     let bigBox = document.getElementsByClassName("container");
@@ -9,3 +17,4 @@ for (i=0; i<256; i++) {
     bigBox += bigBox[0].appendChild(grid);
 };
 }
+
