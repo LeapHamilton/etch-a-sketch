@@ -1,25 +1,32 @@
-let firstStep = createGrid();
-const reset = document.getElementById("btn");
-const gridSquares = document.querySelectorAll (".gridSquare");
+const size = 52;
+const maxWidth = 400;
 
 
-gridSquares.forEach (gridSquare => {
-    gridSquare.addEventListener ("mousedown", function penDraw() {
-        gridSquare.setAttribute("style", "background-color: gray")
-    })
+function createGrid(size) {
+    for (i=0; i<size*size; i++) {
+    
+        let gridSquare = document.createElement("div");
+        let container = document.getElementsByClassName("container")[0];
+        gridSquare.classList.add("gridSquare");
+        container.appendChild(gridSquare);
+}
+}
+
+
+
+
+const gridSquares = document.querySelectorAll('.gridSquare');
+
+gridSquares.forEach(gridSquare => {
+let boxSize= (maxWidth / size) + "px";
+console.log(boxSize);
+  gridSquare.style.height = boxSize;
+  gridSquare.style.width = boxSize;
 })
 
 
-function createGrid(){
-for (i=0; i<256; i++) {
-    let bigBox = document.getElementsByClassName("container");
-    let grid = document.createElement("div");
-    grid.classList.add("gridSquare");
-    grid.setAttribute("id", i + 1);;
-    bigBox += bigBox[0].appendChild(grid);
-};
-}
 
-reset.addEventListener ("click", function clearGrid() {
-    location.reload();
-});
+document.documentElement.style.setProperty("--columns-row", size);
+
+
+createGrid(size);
