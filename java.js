@@ -1,4 +1,4 @@
-const size = 52;
+const size = 38;
 const maxWidth = 400;
 
 
@@ -11,17 +11,17 @@ function createGrid(size) {
         container.appendChild(gridSquare);
 }
 }
-
+createGrid(size);
 
 
 
 const gridSquares = document.querySelectorAll('.gridSquare');
 
+
 gridSquares.forEach(gridSquare => {
-let boxSize= (maxWidth / size) + "px";
-console.log(boxSize);
-  gridSquare.style.height = boxSize;
-  gridSquare.style.width = boxSize;
+    gridSquare.addEventListener('mouseover', event => {
+        gridSquare.style.backgroundColor = "black"
+      })
 })
 
 
@@ -29,4 +29,3 @@ console.log(boxSize);
 document.documentElement.style.setProperty("--columns-row", size);
 
 
-createGrid(size);
